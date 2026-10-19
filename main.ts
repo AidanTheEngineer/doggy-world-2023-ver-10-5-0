@@ -17,88 +17,67 @@ namespace SpriteKind {
     export const Caution_Sign = SpriteKind.create()
     export const Water = SpriteKind.create()
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite4, location) {
-    Doggy.ax = 0
-    Doggy.ay = 0
-    current_level += 1
-    sprites.destroyAllSpritesOfKind(SpriteKind.Apple_Food)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Bee)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Catacter)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Imperial_Catacater)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Head_Scientist_Catacter)
-    sprites.destroyAllSpritesOfKind(SpriteKind.teleporter_sender)
-    sprites.destroyAllSpritesOfKind(SpriteKind.telepoter_reciever)
-    sprites.destroyAllSpritesOfKind(SpriteKind.flowing_lava)
-    sprites.destroyAllSpritesOfKind(SpriteKind.still_lava)
-    sprites.destroyAllSpritesOfKind(SpriteKind.GoldenApple_Food)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Caution_Sign)
-    sprites.destroyAllSpritesOfKind(SpriteKind.Water)
-    Start_Level()
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`lava_still`, function (sprite6, location2) {
-    info.changeLifeBy(-1)
-})
 function Start_Level () {
     if (current_level == 1) {
         tiles.setCurrentTilemap(tilemap`level1`)
     } else if (current_level == 2) {
         game.splash("Level 2 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_2`)
+        tiles.setCurrentTilemap(tilemap`level2`)
         Health_Bar.value = 110
         Health_Bar.max = 110
     } else if (current_level == 3) {
         game.splash("Level 3 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_3`)
+        tiles.setCurrentTilemap(tilemap`level3`)
         Health_Bar.value = 120
         Health_Bar.max = 120
     } else if (current_level == 4) {
         game.splash("Level 4 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_4true`)
+        tiles.setCurrentTilemap(tilemap`level4`)
         Health_Bar.value = 130
         Health_Bar.max = 130
     } else if (current_level == 5) {
         game.splash("Level 5 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_5`)
+        tiles.setCurrentTilemap(tilemap`level5`)
         Health_Bar.value = 140
         Health_Bar.max = 140
     } else if (current_level == 6) {
         game.splash("Level 6 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_6`)
+        tiles.setCurrentTilemap(tilemap`level6`)
         Health_Bar.value = 150
         Health_Bar.max = 150
     } else if (current_level == 7) {
         game.splash("Level 7 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_7`)
+        tiles.setCurrentTilemap(tilemap`level7`)
         Health_Bar.value = 160
         Health_Bar.max = 160
     } else if (current_level == 8) {
         game.splash("Level 8 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_8`)
+        tiles.setCurrentTilemap(tilemap`level8`)
         Health_Bar.value = 170
         Health_Bar.max = 170
     } else if (current_level == 9) {
         game.splash("Level 9 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level27`)
+        tiles.setCurrentTilemap(tilemap`level9`)
         Health_Bar.value = 180
         Health_Bar.max = 180
     } else if (current_level == 10) {
         game.splash("Level 10 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_9`)
+        tiles.setCurrentTilemap(tilemap`level10`)
         Health_Bar.value = 190
         Health_Bar.max = 190
     } else if (current_level == 11) {
         game.splash("Level 11 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_10`)
+        tiles.setCurrentTilemap(tilemap`level11`)
         Health_Bar.value = 200
         Health_Bar.max = 200
     } else if (current_level == 12) {
         game.splash("Level 12 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level_0`)
+        tiles.setCurrentTilemap(tilemap`level12`)
         Health_Bar.value = 210
         Health_Bar.max = 210
     } else if (current_level == 13) {
         game.splash("Level 13 Unlocked!")
-        tiles.setCurrentTilemap(tilemap`level49`)
+        tiles.setCurrentTilemap(tilemap`level13`)
         Health_Bar.value = 210
         Health_Bar.max = 210
     } else {
@@ -106,8 +85,8 @@ function Start_Level () {
         game.setGameOverMessage(true, "ROOF! ROOF! GOOD JOB!")
         game.setGameOverMessage(true, "Remember you can go to the Offical Site For Records")
     }
-    tiles.placeOnRandomTile(Doggy, assets.tile`Spawn_Doggy`)
-    for (let value of tiles.getTilesByType(assets.tile`Spawn_Doggy`)) {
+    tiles.placeOnRandomTile(Doggy, assets.tile`transparency16`)
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
     scene.cameraFollowSprite(Doggy)
@@ -129,78 +108,113 @@ function Start_Level () {
     for (let value7 of sprites.allOfKind(SpriteKind.Flower)) {
         sprites.destroy(value7)
     }
-    for (let value8 of tiles.getTilesByType(assets.tile`Coin_Collectable`)) {
+    for (let value8 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin2 = sprites.create(assets.image`Coin_Actual`, SpriteKind.Coin)
         animation.runImageAnimation(
         Coin2,
-        assets.animation`Coin_Animation`,
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
         500,
         true
         )
         tiles.placeOnTile(Coin2, value8)
         tiles.setTileAt(value8, assets.tile`transparency16`)
     }
-    for (let value9 of tiles.getTilesByType(assets.tile`Flower_Placeholder`)) {
+    for (let value9 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Flower2 = sprites.create(assets.image`Flower_1`, SpriteKind.Flower)
         tiles.placeOnTile(Flower2, value9)
         tiles.setTileAt(value9, assets.tile`transparency16`)
     }
-    for (let value10 of tiles.getTilesByType(assets.tile`Catacter_Tile`)) {
+    for (let value10 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Catacter_Sprite = sprites.create(assets.image`Catacter`, SpriteKind.Catacter)
         tiles.placeOnTile(Catacter_Sprite, value10)
         tiles.setTileAt(value10, assets.tile`transparency16`)
     }
-    for (let value11 of tiles.getTilesByType(assets.tile`10coin`)) {
+    for (let value11 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin10Var = sprites.create(assets.image`Coin_10`, SpriteKind.Coin10)
         tiles.placeOnTile(Coin10Var, value11)
         tiles.setTileAt(value11, assets.tile`transparency16`)
     }
-    for (let value12 of tiles.getTilesByType(assets.tile`Coin100`)) {
+    for (let value12 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin1002 = sprites.create(assets.image`Coin_100`, SpriteKind.Coin100)
         tiles.placeOnTile(Coin1002, value12)
         tiles.setTileAt(value12, assets.tile`transparency16`)
     }
-    for (let value13 of tiles.getTilesByType(assets.tile`apple_foodtile`)) {
+    for (let value13 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Apple = sprites.create(assets.image`apple_food`, SpriteKind.Apple_Food)
         tiles.placeOnTile(Apple, value13)
         tiles.setTileAt(value13, assets.tile`transparency16`)
     }
-    for (let value14 of tiles.getTilesByType(assets.tile`GOLDEN_APPLE_FOOD`)) {
+    for (let value14 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Golden_Apple = sprites.create(assets.image`goldenapple_food`, SpriteKind.GoldenApple_Food)
         tiles.placeOnTile(Golden_Apple, value14)
         tiles.setTileAt(value14, assets.tile`transparency16`)
     }
-    for (let value15 of tiles.getTilesByType(assets.tile`Imperial_Catacater_Spawn`)) {
+    for (let value15 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Imperial_Catacter_Sprite = sprites.create(assets.image`Imperial_Catacter_Sprite`, SpriteKind.Imperial_Catacater)
         tiles.placeOnTile(Imperial_Catacter_Sprite, value15)
         tiles.setTileAt(value15, assets.tile`transparency16`)
     }
-    for (let value16 of tiles.getTilesByType(assets.tile`head_scientist_catacter`)) {
+    for (let value16 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Head_Scintist_Catacter_Sprite = sprites.create(assets.image`Head_Scientist_Catacter_Sprite`, SpriteKind.Head_Scientist_Catacter)
         tiles.placeOnTile(Head_Scintist_Catacter_Sprite, value16)
         tiles.setTileAt(value16, assets.tile`transparency16`)
     }
-    for (let value17 of tiles.getTilesByType(assets.tile`teleport_tile_sender`)) {
+    for (let value17 of tiles.getTilesByType(assets.tile`transparency16`)) {
         teleport_portal = sprites.create(assets.image`teleport_portal`, SpriteKind.teleporter_sender)
         tiles.placeOnTile(teleport_portal, value17)
         tiles.setTileAt(value17, assets.tile`transparency16`)
     }
-    for (let value18 of tiles.getTilesByType(assets.tile`teleporter_tile_receiver`)) {
+    for (let value18 of tiles.getTilesByType(assets.tile`transparency16`)) {
         teleport_portal_2 = sprites.create(assets.image`teleport_portal_2`, SpriteKind.telepoter_reciever)
         tiles.placeOnTile(teleport_portal_2, value18)
         tiles.setTileAt(value18, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`CAUTION_BLOCK`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         CAUTION_SIGN = sprites.create(assets.image`Caution_Sign_Sprite`, SpriteKind.Caution_Sign)
         tiles.placeOnTile(CAUTION_SIGN, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`water`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         Water = sprites.create(assets.image`water_normal`, SpriteKind.Water)
         tiles.placeOnTile(Water, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite4, location) {
+    Doggy.ax = 0
+    Doggy.ay = 0
+    current_level += 1
+    sprites.destroyAllSpritesOfKind(SpriteKind.Apple_Food)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Bee)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Catacter)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Imperial_Catacater)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Head_Scientist_Catacter)
+    sprites.destroyAllSpritesOfKind(SpriteKind.teleporter_sender)
+    sprites.destroyAllSpritesOfKind(SpriteKind.telepoter_reciever)
+    sprites.destroyAllSpritesOfKind(SpriteKind.flowing_lava)
+    sprites.destroyAllSpritesOfKind(SpriteKind.still_lava)
+    sprites.destroyAllSpritesOfKind(SpriteKind.GoldenApple_Food)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Caution_Sign)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Water)
+    Start_Level()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite)
@@ -213,43 +227,28 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         Doggy.vy = -150
     }
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.teleporter_sender, function (sprite15, otherSprite11) {
-    Doggy.setPosition(teleport_portal_2.x, teleport_portal_2.y)
-    sprites.destroy(otherSprite11)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Bee, function (sprite19, otherSprite15) {
-    bee_health.value += -45
-    if (Doggy.y < otherSprite15.y) {
-        info.changeScoreBy(3)
-    } else {
-        Health_Bar.value += -5
-    }
-    if (bee_health.value == 0) {
-        sprites.destroy(otherSprite15)
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`secret_level_flag`, function (sprite10, location4) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite10, location4) {
     if (current_secret_level == 0) {
-        tiles.setCurrentTilemap(tilemap`level_1_secret`)
+        tiles.setCurrentTilemap(tilemap`level14`)
     } else if (current_secret_level == 1) {
-        tiles.setCurrentTilemap(tilemap`level_3_secret`)
+        tiles.setCurrentTilemap(tilemap`level15`)
     } else if (current_secret_level == 2) {
-        tiles.setCurrentTilemap(tilemap`level_3_secret`)
+        tiles.setCurrentTilemap(tilemap`level16`)
     } else if (current_secret_level == 3) {
-        tiles.setCurrentTilemap(tilemap`secret_level_4`)
+        tiles.setCurrentTilemap(tilemap`level17`)
     } else if (current_secret_level == 4) {
-        tiles.setCurrentTilemap(tilemap`secret_level_5`)
+        tiles.setCurrentTilemap(tilemap`level18`)
     } else if (current_secret_level == 5) {
-        tiles.setCurrentTilemap(tilemap`secret_level_0`)
+        tiles.setCurrentTilemap(tilemap`level19`)
     } else if (current_secret_level == 6) {
-        tiles.setCurrentTilemap(tilemap`secret_level_6`)
+        tiles.setCurrentTilemap(tilemap`level20`)
     } else if (current_secret_level == 7) {
-        tiles.setCurrentTilemap(tilemap`scam_secret_level`)
+        tiles.setCurrentTilemap(tilemap`level21`)
     } else {
     	
     }
-    tiles.placeOnRandomTile(Doggy, assets.tile`Spawn_Doggy`)
-    for (let value142 of tiles.getTilesByType(assets.tile`Spawn_Doggy`)) {
+    tiles.placeOnRandomTile(Doggy, assets.tile`transparency16`)
+    for (let value142 of tiles.getTilesByType(assets.tile`transparency16`)) {
         tiles.setTileAt(value142, assets.tile`transparency16`)
     }
     scene.cameraFollowSprite(Doggy)
@@ -271,73 +270,90 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`secret_level_flag`, function 
     for (let value20 of sprites.allOfKind(SpriteKind.Flower)) {
         sprites.destroy(value20)
     }
-    for (let value21 of tiles.getTilesByType(assets.tile`Coin_Collectable`)) {
+    for (let value21 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin2 = sprites.create(assets.image`Coin_Actual`, SpriteKind.Coin)
         animation.runImageAnimation(
         Coin2,
-        assets.animation`Coin_Animation`,
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
         500,
         true
         )
         tiles.placeOnTile(Coin2, value21)
         tiles.setTileAt(value21, assets.tile`transparency16`)
     }
-    for (let value22 of tiles.getTilesByType(assets.tile`Flower_Placeholder`)) {
+    for (let value22 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Flower2 = sprites.create(assets.image`Flower_1`, SpriteKind.Flower)
         tiles.placeOnTile(Flower2, value22)
         tiles.setTileAt(value22, assets.tile`transparency16`)
     }
-    for (let value23 of tiles.getTilesByType(assets.tile`Catacter_Tile`)) {
+    for (let value23 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Catacter_Sprite = sprites.create(assets.image`Catacter`, SpriteKind.Catacter)
         tiles.placeOnTile(Catacter_Sprite, value23)
         tiles.setTileAt(value23, assets.tile`transparency16`)
     }
-    for (let value24 of tiles.getTilesByType(assets.tile`10coin`)) {
+    for (let value24 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin10Var = sprites.create(assets.image`Coin_10`, SpriteKind.Coin10)
         tiles.placeOnTile(Coin10Var, value24)
         tiles.setTileAt(value24, assets.tile`transparency16`)
     }
-    for (let value25 of tiles.getTilesByType(assets.tile`Imperial_Catacater_Spawn`)) {
+    for (let value25 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Imperial_Catacter_Sprite = sprites.create(assets.image`Imperial_Catacter_Sprite`, SpriteKind.Imperial_Catacater)
         tiles.placeOnTile(Imperial_Catacter_Sprite, value25)
         tiles.setTileAt(value25, assets.tile`transparency16`)
     }
-    for (let value252 of tiles.getTilesByType(assets.tile`Coin100`)) {
+    for (let value252 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Coin1002 = sprites.create(assets.image`Coin_100`, SpriteKind.Coin100)
         tiles.placeOnTile(Coin1002, value252)
         tiles.setTileAt(value252, assets.tile`transparency16`)
     }
-    for (let value26 of tiles.getTilesByType(assets.tile`apple_foodtile`)) {
+    for (let value26 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Apple = sprites.create(assets.image`apple_food`, SpriteKind.Apple_Food)
         tiles.placeOnTile(Apple, value26)
         tiles.setTileAt(value26, assets.tile`transparency16`)
     }
-    for (let value27 of tiles.getTilesByType(assets.tile`head_scientist_catacter`)) {
+    for (let value27 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Head_Scintist_Catacter_Sprite = sprites.create(assets.image`Head_Scientist_Catacter_Sprite`, SpriteKind.Head_Scientist_Catacter)
         tiles.placeOnTile(Head_Scintist_Catacter_Sprite, value27)
         tiles.setTileAt(value27, assets.tile`transparency16`)
     }
-    for (let value28 of tiles.getTilesByType(assets.tile`teleport_tile_sender`)) {
+    for (let value28 of tiles.getTilesByType(assets.tile`transparency16`)) {
         teleport_portal = sprites.create(assets.image`teleport_portal`, SpriteKind.teleporter_sender)
         tiles.placeOnTile(teleport_portal, value28)
         tiles.setTileAt(value28, assets.tile`transparency16`)
     }
-    for (let value29 of tiles.getTilesByType(assets.tile`teleporter_tile_receiver`)) {
+    for (let value29 of tiles.getTilesByType(assets.tile`transparency16`)) {
         teleport_portal_2 = sprites.create(assets.image`teleport_portal_2`, SpriteKind.telepoter_reciever)
         tiles.placeOnTile(teleport_portal_2, value29)
         tiles.setTileAt(value29, assets.tile`transparency16`)
     }
-    for (let value30 of tiles.getTilesByType(assets.tile`GOLDEN_APPLE_FOOD`)) {
+    for (let value30 of tiles.getTilesByType(assets.tile`transparency16`)) {
         Golden_Apple = sprites.create(assets.image`goldenapple_food`, SpriteKind.GoldenApple_Food)
         tiles.placeOnTile(Golden_Apple, value30)
         tiles.setTileAt(value30, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`CAUTION_BLOCK`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         CAUTION_SIGN = sprites.create(assets.image`Caution_Sign_Sprite`, SpriteKind.Player)
         tiles.placeOnTile(CAUTION_SIGN, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`water`)) {
+    for (let value of tiles.getTilesByType(assets.tile`transparency16`)) {
         Water = sprites.create(assets.image`water_normal`, SpriteKind.Water)
         tiles.placeOnTile(Water, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
@@ -354,6 +370,21 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`secret_level_flag`, function 
     sprites.destroyAllSpritesOfKind(SpriteKind.GoldenApple_Food)
     sprites.destroyAllSpritesOfKind(SpriteKind.Caution_Sign)
     sprites.destroyAllSpritesOfKind(SpriteKind.Water)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.teleporter_sender, function (sprite15, otherSprite11) {
+    Doggy.setPosition(teleport_portal_2.x, teleport_portal_2.y)
+    sprites.destroy(otherSprite11)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Bee, function (sprite19, otherSprite15) {
+    bee_health.value += -45
+    if (Doggy.y < otherSprite15.y) {
+        info.changeScoreBy(3)
+    } else {
+        Health_Bar.value += -5
+    }
+    if (bee_health.value == 0) {
+        sprites.destroy(otherSprite15)
+    }
 })
 sprites.onOverlap(SpriteKind.Catacter, SpriteKind.Projectile, function (sprite7, otherSprite5) {
     sprites.destroy(sprite7)
@@ -372,6 +403,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Imperial_Catacater, function (sp
         Health_Bar.value += -20
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite8, location3) {
+    info.changeLifeBy(-1)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin10, function (sprite11, otherSprite7) {
     info.changeScoreBy(10)
     sprites.destroy(otherSprite7)
@@ -388,7 +422,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Catacter, function (sprite18, ot
         Health_Bar.value += -10
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`lava_flowing`, function (sprite8, location3) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite6, location2) {
     info.changeLifeBy(-1)
 })
 sprites.onOverlap(SpriteKind.Bee, SpriteKind.Projectile, function (sprite12, otherSprite8) {
@@ -455,7 +489,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Flower, function (sprite13, othe
     bee_health.attachToSprite(Bee2)
     animation.runImageAnimation(
     Bee2,
-    assets.animation`Bee_EnemyAnamation`,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
     100,
     true
     )
@@ -463,8 +514,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Flower, function (sprite13, othe
     Bee2.follow(Doggy)
 })
 let Bee2: Sprite = null
-let current_secret_level = 0
 let bee_health: StatusBarSprite = null
+let current_secret_level = 0
 let sonic_bark: Sprite = null
 let Water: Sprite = null
 let CAUTION_SIGN: Sprite = null

@@ -1,0 +1,40 @@
+{
+    "name": "Doggy World Ver. 10.5.0",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "animation": "*",
+        "multiplayer": "*",
+        "radio-broadcast": "*",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
+        "sprite-scaling": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "Doggy World Ver. 1.2.2.json",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.26",
+        "tag": "v1.12.26",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/5913cfba52b36d2a23773b528b9c996b007c0e3f",
+        "target": "4.1.25",
+        "pxt": "8.5.38",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}

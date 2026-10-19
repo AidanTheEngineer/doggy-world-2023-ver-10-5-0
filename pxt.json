@@ -1,5 +1,6 @@
 {
     "name": "Doggy World Ver. 10.5.0",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "device": "*",
